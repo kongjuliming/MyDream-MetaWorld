@@ -1,0 +1,46 @@
+<html>
+<body>
+<span>人物血量:</span><span id="Health">100</span><br>
+<span>人物攻击力:</span><span id="Damage">10</span><br>
+<span>怪物血量:</span><span id="MonsterHealth">80</span><br>
+<span>怪物攻击力:</span><span id="MonsterDamage">10</span><br>
+<button onclick="Attack()">攻击</button>
+</body>
+<script>
+setInterval(MonsterAttack, 1000)
+    var Health=100;
+    var Damage=10;
+    var MonsterHealth=80;
+    var MonsterDamage=10;
+function Attack()
+{
+    if(MonsterHealth > 0)
+    {
+        MonsterHealth = MonsterHealth - Damage;
+        document.getElementById("MonsterHealth").innerHTML = MonsterHealth;
+        if(MonsterHealth <= 0)
+        {
+            alert("怪物死了");
+            MonsterHealth = 100;
+            document.getElementById("MonsterHealth").innerHTML = MonsterHealth;
+        }
+    }
+}
+
+function MonsterAttack()
+{
+    if(Health > 0)
+    {
+        Health = Health - MonsterDamage;
+        document.getElementById("Health").innerHTML = Health;
+        if(Health <= 0)
+        {
+            alert("你死了");
+            Health = 100;
+            document.getElementById("Health").innerHTML=Health;
+        }
+    }
+
+}
+</script>
+</html>
